@@ -1,10 +1,9 @@
 ﻿using HarmonyLib;
 using Outposts;
 using RimWorld;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using UnityEngine;
 using Verse;
 
 namespace VEOutpostAddictionFix
@@ -51,6 +50,21 @@ namespace VEOutpostAddictionFix
         public static void Postfix()
         {
             tickedPawn = null;
+        }
+    }
+
+    [HarmonyPatch(typeof(Outpost), nameof(Outpost.SatisfyNeeds), new Type[] { typeof(Pawn) })]
+    public static class Outpost_SatisfyNeeds_Patch
+    {
+        public static void Postfix(Pawn pawn)
+        {
+            if (pawn.needs?.needs != null)
+            {
+                foreach (var need in pawn.needs.needs)
+                {
+                    need.CurLevel = need.MaxLevel;
+                }
+            }
         }
     }
 }
