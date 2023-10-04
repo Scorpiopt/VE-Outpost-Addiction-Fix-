@@ -31,6 +31,7 @@ namespace VEOutpostAddictionFix
             {
                 if (__instance is Hediff_ChemicalDependency || __instance is Hediff_Addiction)
                 {
+                    __instance.Severity = 0;
                     return false;
                 }
             }
