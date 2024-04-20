@@ -4,6 +4,7 @@
   <author>Scorpio</author>
   <supportedVersions>
     <li>1.4</li>
+    <li>1.5</li>
   </supportedVersions>
   <packageId>Scorpio.VEOutpostAddictionFix</packageId>
   <modDependencies>
@@ -24,6 +25,8 @@
     <li>Ludeon.RimWorld.Royalty</li>
     <li>brrainz.harmony</li>
     <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+		<li>vanillaexpanded.outposts</li>
   </loadAfter>
+  
   <description>Genetic and regular dependencies won't be ticking when in outposts.</description>
 </ModMetaData>
